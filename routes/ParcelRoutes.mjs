@@ -1,5 +1,6 @@
 import express from "express";
 
+
 const router = express.Router();
 
 import {
@@ -32,7 +33,7 @@ router.get("/find/:id", getOneParcel);
 
 // GET USERS PARCELS
 
-router.post("/me", getUserParcel);
+router.post("/me", verifyToken, getUserParcel);
 
 // DELETE PARCEL
 
