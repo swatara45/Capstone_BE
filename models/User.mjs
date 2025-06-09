@@ -2,21 +2,17 @@ import mongoose from "mongoose";
 
 const UserSchema = mongoose.Schema(
   {
-    fullname: { type: String, required: true },
-    email: { type: String, required: true },
+    fullname: { type: String, require: true },
+    email: { type: String, require: true },
     age: { type: Number },
-    country: { type: String, required: true },
-    address: { type: String, required: true },
-    password: { type: String, required: true },
+    country: { type: String, require: true },
+    address: { type: String, require: true },
+    password: { type: String, require: true },
+    status: { type: String, default: "pending"},
     role: { type: String, default: "user" },
-    zipcode: { type: Number },
-    status: {
-    type: String,
-    default: "Pending" // Options: Pending, In Transit, Delivered
   },
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  },
-});
+  {
+    timestamps: true,
+  }
+);
 export default mongoose.model("User", UserSchema);

@@ -32,7 +32,7 @@ router.get("/find/:id", getOneParcel);
 
 // GET USERS PARCELS
 
-router.post("/me", verifyToken, getUserParcel);
+router.post("/me", getUserParcel);
 
 // DELETE PARCEL
 
