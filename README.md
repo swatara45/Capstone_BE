@@ -4,7 +4,7 @@ This is the backend server for MJ Trucking Parcel Delivery Web Application. It h
  ## 🚀 Features
  - 🔐 JWT-based User Authentication (Register/Login with token-based session) 
 
-- 📦 ## Parcel Management API (CRUD operations for parcels)
+- 📦 Parcel Management API (CRUD operations for parcels)
 
 - ⚙️ MongoDB Database (with Mongoose ODM)
 

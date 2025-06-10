@@ -55,13 +55,19 @@ dotenv.config();
 
     const { password, ...info } = user._doc;
 
-    const accessToken = jwt.sign(
-      { id: user._id, role: user.role },
-      process.env.JWT_SEC,
-      { expiresIn: "10d" }
-    );
+   // Example in your login controller:
+const token = jwt.sign(
+  {
+    id: user._id,
+    email: user.email,
+    role: user.role,
+  },
+  process.env.JWT_SEC,
+  { expiresIn: "3d" }
+);
 
-    res.status(200).json({ ...info, accessToken });
+
+    res.status(200).json({ ...info, accessToken: token, role: user.role });
   } catch (error) {
     res.status(500).json(error);
   }

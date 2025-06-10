@@ -16,10 +16,10 @@ const createParcel = async (req, res) => {
 
 const getAllParcels = async (req, res) => {
   try {
-    const parcels = await Parcel.find().sort({ createdAt: -1 });
+    const parcels = await Parcel.find();
     res.status(200).json(parcels);
-  } catch (error) {
-    res.status(500).json(error);
+  } catch (err) {
+    res.status(500).json(err);
   }
 };
 

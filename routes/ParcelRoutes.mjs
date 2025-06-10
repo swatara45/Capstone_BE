@@ -14,7 +14,7 @@ import {
 
 import {
   verifyToken,
-  verifyTokenAndAuthorization,
+  verifyTokenAndAdmin,
 } from "../middlewares/VerifyToken.mjs";
 
 // ADD PARCEL
@@ -22,7 +22,7 @@ router.post("/", createParcel);
 
 // GET ALL PARCELS
 
-router.get("/", getAllParcels);
+router.get("/", verifyTokenAndAdmin, getAllParcels);
 
 // UPDATE PARCEL
 router.put("/:id", updateParcel);
