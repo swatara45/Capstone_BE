@@ -27,12 +27,28 @@ const getAllParcels = async (req, res) => {
 
 const updateParcel = async (req, res) => {
   try {
-    const parcel = await Parcel.findById(req.params.id);
-    res.status(201).json(parcel);
-  } catch (error) {
-    res.status(500).json(error);
+    console.log("Updating ID:", req.params.id);
+    console.log("Body received:", req.body);
+
+    const updated = await Parcel.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, runValidators: true }
+    );
+
+    if (!updated) {
+      return res.status(404).json({ message: "Parcel not found" });
+    }
+
+    console.log("Updated document:", updated);
+    res.status(200).json({ message: "Parcel updated", parcel: updated });
+  } catch (err) {
+    console.error("Update error:", err);
+    res.status(500).json({ message: "Server error", error: err.message });
   }
 };
+
+
 
 // Get one parcel
 

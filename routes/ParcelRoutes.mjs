@@ -25,12 +25,15 @@ router.post("/", createParcel);
 router.get("/", verifyTokenAndAdmin, getAllParcels);
 
 // UPDATE PARCEL
-router.put("/:id", updateParcel);
+router.put("/:id", verifyTokenAndAdmin, updateParcel);
+
 
 // GET ONE PARCEL
 
-router.get("/find/:id", getOneParcel);
+router.get("/:id", verifyTokenAndAdmin, getOneParcel);
 
+// GET ONE PARCEL (user or admin)
+router.get("/find/:id", verifyToken, getOneParcel);
 // GET USERS PARCELS
 
 router.post("/me", verifyToken, getUserParcel);
