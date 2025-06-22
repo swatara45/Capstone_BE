@@ -17,7 +17,7 @@ import {
   verifyTokenAndAdmin,
 } from "../middlewares/VerifyToken.mjs";
 
-// ADD PARCEL
+// CREATE PARCEL
 router.post("/", createParcel);
 
 // GET ALL PARCELS
@@ -29,11 +29,12 @@ router.put("/:id", verifyTokenAndAdmin, updateParcel);
 
 
 // GET ONE PARCEL
-
+// admin
 router.get("/:id", verifyTokenAndAdmin, getOneParcel);
 
-// GET ONE PARCEL (user or admin)
+// GET ONE PARCEL (user )
 router.get("/find/:id", verifyToken, getOneParcel);
+
 // GET USERS PARCELS
 
 router.post("/me", verifyToken, getUserParcel);
